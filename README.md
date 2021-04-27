@@ -1,7 +1,2 @@
-.PHONY: build
-
-build: 
-    go build -v ./cmd/webserver
-
-.DEFAULT_GOAL := build
+Работа выполнена на 35%;
  
