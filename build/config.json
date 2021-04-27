@@ -1,0 +1,6 @@
+{
+    "storage": {
+        "connection": "./storage.db3",
+        "driver": "sqlite3"
+    }
+}
