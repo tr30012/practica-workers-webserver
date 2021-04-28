@@ -47,4 +47,34 @@ const (
 		date       DATE,
 		archivist  STRING
 	);`
+
+	SQLStringInsertJobless = `INSERT INTO Jobless(
+		last_name,
+		first_name, 
+		patronymic,
+		age,
+		passport,
+		passport_date,
+		region,
+		address,
+		phone,
+		study_place,
+		study_address,
+		study_type,
+		registrar,
+		reg_date,
+		payment,
+		comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+
+	SQLStringInsertArchive = `INSERT INTO Archive(
+		jobless_id,
+		job_id,
+		date,
+		archivist) VALUES (?, ?, ?, ?)`
+
+	SQLStringInsertJobfiver = `INSERT INTO Jobgivers(
+		jobless_id,
+		job_id,
+		date,
+		archivist) VALUES (?, ?, ?, ?)`
 )
