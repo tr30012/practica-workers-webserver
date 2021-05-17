@@ -2,5 +2,6 @@
     "storage": {
         "connection": "./storage.db3",
         "driver": "sqlite3"
-    }
+    },
+    "address": "localhost:8080"
 }

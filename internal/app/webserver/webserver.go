@@ -1,13 +1,21 @@
 package webserver
 
 import (
+	"net/http"
 	"webserver/internal/app/configurator"
 	"webserver/internal/app/storage"
+
+	"github.com/gorilla/mux"
 )
+
+type Config struct {
+	Address string `json:"address"`
+}
 
 type WEBServer struct {
 	Config  *configurator.Config
 	Storage *storage.Storage
+	Router  *mux.Router
 }
 
 func New() *WEBServer {
@@ -26,6 +34,15 @@ func (s *WEBServer) Start() error {
 	}
 
 	defer s.Storage.Close()
+
+	s.Router = mux.NewRouter()
+
+	s.Router.PathPrefix("/static/").Handler(http.StripPrefix("/static/",
+		http.FileServer(http.Dir("./static/"))))
+
+	if err := http.ListenAndServe(s.Config.WSAddress, s.Router); err != nil {
+		return err
+	}
 
 	return nil
 }

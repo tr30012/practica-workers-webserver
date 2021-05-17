@@ -8,7 +8,8 @@ import (
 )
 
 type Config struct {
-	DBConfig storage.Config `json:"storage"`
+	DBConfig  storage.Config `json:"storage"`
+	WSAddress string         `json:"address"`
 }
 
 func Open(path string) (*Config, error) {
