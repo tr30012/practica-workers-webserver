@@ -13,10 +13,10 @@
         <div class="form-right-decoration"></div>
         <div class="circle"></div>
         <div class="form-inner">
-        <h3>Добро пожаловать!</h3>
-        <a href="/vacations"><input type="button" value="Вакансии"></a>
-        <a href="/jobless"><input type="button" value="Безработные"></a>
-        <a href="/archive"><input type="button" value="Архив"></a>
+        <h3> {{ .Header }}</h3>
+        {{ range .Buttons}}
+        <a href="{{ .URL }}"><input type="button" value="{{ .Text }}"></a>
+        {{ end }}
         </div>
     </form>
 </body>
